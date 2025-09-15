@@ -1,135 +1,126 @@
-# Turborepo starter
+# Murmle
 
-This Turborepo starter is maintained by the Turborepo core team.
+A 2D metaverse platform that enables virtual collaboration and social interaction through customizable spaces and real-time communication.
 
-## Using this example
+## Features
 
-Run the following command:
+- **Virtual Spaces**: Create and customize 2D environments for teams and communities
+- **Real-time Communication**: Voice, video, and text chat with proximity-based audio
+- **Avatar System**: Personalized avatars that move through virtual spaces
+- **Collaborative Tools**: Screen sharing, whiteboards, and interactive objects
+- **Room Management**: Public and private spaces with customizable permissions
+- **Cross-platform**: Web-based platform accessible from any device
 
-```sh
-npx create-turbo@latest
+*Note: These are planned features currently in development*
+
+## 🏗️ Architecture
+
+This project is built as a monorepo using modern web technologies:
+
+- **Monorepo**: TurboRepo for efficient build and dependency management
+- **Runtime**: Bun for fast JavaScript runtime and package management
+- **API Framework**: Hono for lightweight, fast HTTP server
+- **Database**: PostgreSQL with type-safe queries
+- **Testing**: Test-driven development approach with comprehensive test coverage
+- **Frontend**: Modern web technologies for responsive user experience
+
+## Getting Started
+
+### Prerequisites
+
+- [Bun](https://bun.sh/) installed on your system
+- PostgreSQL database instance
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/murmle.git
+cd murmle
 ```
 
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+2. Install dependencies:
+```bash
+bun install
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+3. Set up environment variables:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+4. Build all packages:
+```bash
+bun run build
 ```
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
+5. Run tests:
+```bash
+bun test
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+6. Start the development server:
+```bash
+bun run dev
 ```
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## 📁 Project Structure
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+murmle/
+├── apps/
+│   └── http/           # Main API server
+├── packages/
+│   ├── db/            # Database schema and utilities
+│   └── typescript-config
+├── tests/             # Test suites
+└── turbo.json         # TurboRepo configuration
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## Development Philosophy
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+This project follows **Test-Driven Development (TDD)** principles:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
+- Tests are written before implementation
+- Comprehensive test coverage for all features
+- Continuous integration ensures code quality
+- Database-first approach with robust schema design
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+## Contributing
 
-## Useful Links
+We welcome contributions! Please follow these steps:
 
-Learn more about the power of Turborepo:
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Write tests for your changes
+4. Implement your feature
+5. Ensure all tests pass: `bun test`
+6. Commit your changes: `git commit -m 'Add amazing feature'`
+7. Push to the branch: `git push origin feature/amazing-feature`
+8. Open a Pull Request
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+## Scripts
+
+- `bun run dev` - Start development server
+- `bun run build` - Build all packages
+- `bun run test` - Run test suites
+- `bun run db:migrate` - Run database migrations
+- `bun run db:seed` - Seed database with sample data
+- `bun run lint` - Lint codebase
+- `bun run type-check` - Run TypeScript type checking
+
+## License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License - see the LICENSE file for details.
+In simple terms:
+
+- ✅ You can use, modify, and share this code
+- ✅ You must give proper credit/attribution
+- ❌ No commercial use without permission
+
+## Support
+
+If you have questions or need help:
+
+- Open an issue on GitHub
+
+---
+
+Built with too much coffee and not enough sleep!
