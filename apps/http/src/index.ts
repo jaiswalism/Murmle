@@ -10,6 +10,6 @@ app.route("/api/v1", v1Router)
 
 
 export default {
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 4567,
     fetch: app.fetch
 }
