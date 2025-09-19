@@ -1,6 +1,5 @@
 {
   "name": "@repo/db",
-  "module": "index.ts",
   "type": "module",
   "private": true,
   "main": "./dist/index.js",
@@ -18,14 +17,14 @@
   "scripts": {
     "build": "tsc -b"
   },
+  "dependencies": {
+    "@prisma/client": "^6.16.1",
+    "prisma": "^6.16.1"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "dependencies": {
-    "@prisma/client": "^6.16.1",
-    "prisma": "^6.16.1"
   }
 }

@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  // output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -23,10 +23,10 @@ model User {
   id       String  @id @unique @default(cuid())
   username String  @unique
   password String
-  avatarId String
+  avatarId String?
   role     Role
   spaces   Space[]
-  avatar   Avatar  @relation(fields: [avatarId], references: [id])
+  avatar   Avatar?  @relation(fields: [avatarId], references: [id])
 }
 
 model Space {
@@ -55,6 +55,7 @@ model Element {
   width       Int
   height      Int
   imageUrl    String
+  static      Boolean
   spaces      SpaceElements[]
   mapElements MapElements[]
 }
