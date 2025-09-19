@@ -7,13 +7,17 @@
     "dev": "bun ./src/index.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bcrypt": "^6.0.0",
+    "@types/bun": "latest",
+    "@types/jsonwebtoken": "^9.0.10"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
+    "@repo/db": "*",
+    "bcrypt": "^6.0.0",
     "hono": "^4.9.7",
-    "@repo/db": "*"
+    "jsonwebtoken": "^9.0.2"
   }
 }
